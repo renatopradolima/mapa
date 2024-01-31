@@ -47,21 +47,6 @@
         <script src="data/2TURMAS_10.js"></script>
         <script src="data/1TURMA_11.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString') {
-              highlightLayer.setStyle({
-                color: '#aa00ff',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#aa00ff',
-                fillOpacity: 1
-              });
-            }
-        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         })
@@ -128,14 +113,6 @@
         layer_OpenStreetMap_2;
         map.addLayer(layer_OpenStreetMap_2);
         function pop_SUBORDINAO_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="NO_MUNICIP"colspan="2"><strong>MUNICÍPIO</strong><br />' + (feature.properties['NO_MUNICIP'] !== null ? autolinker.link(feature.properties['NO_MUNICIP'].toLocaleString()) : '') + '</td>\
@@ -214,7 +191,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,224,19,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Estadual':
@@ -230,7 +207,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,202,193,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Municipal':
@@ -246,7 +223,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(115,255,1,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
                 case 'Privada':
@@ -262,7 +239,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,136,51,1.0)',
-                interactive: false,
+                interactive: true,
             }
                     break;
             }
@@ -272,7 +249,7 @@
         map.getPane('pane_SUBORDINAO_3').style['mix-blend-mode'] = 'normal';
         var layer_SUBORDINAO_3 = new L.geoJson(json_SUBORDINAO_3, {
             attribution: '',
-            interactive: false,
+            interactive: true,
             dataVar: 'json_SUBORDINAO_3',
             layerName: 'layer_SUBORDINAO_3',
             pane: 'pane_SUBORDINAO_3',
@@ -288,14 +265,6 @@
         bounds_group.addLayer(layer_SUBORDINAO_3);
         map.addLayer(layer_SUBORDINAO_3);
         function pop_9TURMAS_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -446,14 +415,6 @@
         bounds_group.addLayer(layer_9TURMAS_4);
         map.addLayer(layer_9TURMAS_4);
         function pop_8TURMAS_5(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -604,14 +565,6 @@
         bounds_group.addLayer(layer_8TURMAS_5);
         map.addLayer(layer_8TURMAS_5);
         function pop_7TURMAS_6(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -762,14 +715,6 @@
         bounds_group.addLayer(layer_7TURMAS_6);
         map.addLayer(layer_7TURMAS_6);
         function pop_5TURMAS_7(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -920,14 +865,6 @@
         bounds_group.addLayer(layer_5TURMAS_7);
         map.addLayer(layer_5TURMAS_7);
         function pop_4TURMAS_8(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -1078,14 +1015,6 @@
         bounds_group.addLayer(layer_4TURMAS_8);
         map.addLayer(layer_4TURMAS_8);
         function pop_3TURMAS_9(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -1236,14 +1165,6 @@
         bounds_group.addLayer(layer_3TURMAS_9);
         map.addLayer(layer_3TURMAS_9);
         function pop_2TURMAS_10(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
@@ -1394,14 +1315,6 @@
         bounds_group.addLayer(layer_2TURMAS_10);
         map.addLayer(layer_2TURMAS_10);
         function pop_1TURMA_11(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CO_ENTIDADE'] !== null ? autolinker.link(feature.properties['CO_ENTIDADE'].toLocaleString()) : '') + '</td>\
